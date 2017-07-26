@@ -28,7 +28,7 @@ public class UserManageController {
                 session.setAttribute(Const.CURRENT_USER,user);
                 return response;
             }else {
-                return ServerResponse.createByErrorMessage("The use is not admin.can not login")
+                return ServerResponse.createByErrorMessage("The use is not admin.can not login");
             }
 
             return response;

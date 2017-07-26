@@ -193,7 +193,14 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createBySuccess(user);
     }
 
-
+  //backend
+    //Validate whether the user is admin or not;
+    public ServerResponse checkAdminRoll(User user){
+        if(user != null && user.getRole().intValue() == Const.Role.ROLL_ADMIN){
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
+    }
 
 
 }

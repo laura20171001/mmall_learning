@@ -17,7 +17,7 @@ public class TokenCache {
         //default data loading implement, when call "get" to get value , if "key" don't have according value then call this method to loading.
         // @Override
         public String load(String s) throws Exception {
-        return null
+        return null;
         }
     });
 
@@ -25,12 +25,12 @@ public class TokenCache {
         localCache.put(key,value);
     }
 
-    public static void getKey(String key){
+    public static String getKey(String key){
         String value = null;
         try{
             value = localCache.get(key);
             if("null".equals(value)){
-                return null;
+                return value;
             }
             return value;
         }catch (Exception e){
