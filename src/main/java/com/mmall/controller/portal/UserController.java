@@ -57,7 +57,7 @@ public class UserController {
         if( user != null){
             return ServerResponse.createBySuccess(user);
         }
-        return ServerResponse.createByErrorMessage("The user failed to login, no user info return")
+        return ServerResponse.createByErrorMessage("The user failed to login, no user info return");
 
     }
 
@@ -116,7 +116,7 @@ public class UserController {
 
         User currentUser=(User)session.getAttribute(Const.CURRENT_USER);
         if(currentUser == null){
-            ServerResponse.createByErrorCodeMessage(ResponceCode.NEED_LOGIN,"The username didn't login yet. Need login.status=10");
+            ServerResponse.createByErrorCodeMessage(ResponceCode.NEED_LOGIN.getCode(),"The username didn't login yet. Need login.status=10");
         }
 
         return iUserService.getInformation(currentUser.getId());

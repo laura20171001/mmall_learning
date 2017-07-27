@@ -9,6 +9,7 @@ import com.mmall.common.TokenCache;
 import com.mmall.dao.UserMapper;
 import com.mmall.pojo.User;
 import com.mmall.service.IUserService;
+import com.mmall.util.MD5Util;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     @Override
-    public Object login(String username,String password){
+    public ServerResponse login(String username,String password){
         int resultCount=userMapper.checkUsername(username);
         if(resultCount == 0){
 
@@ -45,11 +46,11 @@ public class UserServiceImpl implements IUserService {
             return ServerResponse.createByErrorMessage("The username already exists!");
         }
 
-        ServerResponse validResponse = this.checkValid((user.getUsername(),Const.USERNAME));
+        ServerResponse validResponse = this.checkValid(user.getUsername(),Const.USERNAME);
             if(validResponse.isSuccess()) {
                 return  validResponse;
             }
-      validResponse = this.checkValid((user.getEmail(), Const.EMAIL));
+        validResponse = this.checkValid(user.getEmail(),Const.EMAIL);
         if(validResponse.isSuccess()) {
             return  validResponse;
         }

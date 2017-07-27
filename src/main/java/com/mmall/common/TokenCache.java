@@ -5,11 +5,12 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import org.slf4j.LoggerFactory;
-
 import java.util.concurrent.TimeUnit;
 
 public class TokenCache {
-    private static Logger logger= LoggerFactory.getLogger(TokenCache.class);
+
+
+    private static org.slf4j.Logger logger = LoggerFactory.getLogger(TokenCache.class);
 
     public static final String TOKEN_PREFIX="token_";
 
@@ -33,9 +34,9 @@ public class TokenCache {
                 return value;
             }
             return value;
-        }catch (Exception e){
+           }catch (Exception e){
             logger.error("localCache get error",e);
         }
-
+        return value;
     }
 }
