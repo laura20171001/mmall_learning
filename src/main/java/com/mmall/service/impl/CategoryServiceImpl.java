@@ -1,6 +1,5 @@
 package com.mmall.service.impl;
 
-import ch.qos.logback.classic.Logger;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mmall.common.ServerResponse;
@@ -14,16 +13,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.Callable;
 
 
 @Service("iCategoryService")
-public class CategoryServiceimpl implements ICategoryService {
+public class CategoryServiceImpl implements ICategoryService {
 
-        private org.slf4j.Logger logger= LoggerFactory.getLogger(CategoryServiceimpl.class);
+        private org.slf4j.Logger logger= LoggerFactory.getLogger(CategoryServiceImpl.class);
 
 
         @Autowired

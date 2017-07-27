@@ -30,9 +30,7 @@ public class UserManageController {
             }else {
                 return ServerResponse.createByErrorMessage("The use is not admin.can not login");
             }
-
             return response;
-
         }
 
     }
